@@ -36,7 +36,7 @@ function getInternComputer($id){
     $connection = db_connect();
     $query = 'SELECT brand FROM computers
     INNER JOIN interns ON computers.id = interns.computers_id
-    WHERE interns.id =' . $id;
+    WHERE interns.id = ' . $id;
     $stmt = $connection->query($query);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     return $result;
