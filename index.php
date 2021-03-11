@@ -12,7 +12,7 @@ include 'functions.php';
 <body>
 
     <?php 
-        $stagiaires = getInterns();
+        $stagiaires = getInternsList();
         //var_dump($stagiaires);
         
         foreach($stagiaires as $stagiaire){ 
