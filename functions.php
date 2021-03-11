@@ -34,7 +34,7 @@ function getInternInfos($id){
 
 function getInternComputer($id){
     $connection = db_connect();
-    $query = 'SELECT brand FROM computers
+    $query = 'SELECT computers.id, brand FROM computers
     INNER JOIN interns ON computers.id = interns.computers_id
     WHERE interns.id = ' . $id;
     $stmt = $connection->query($query);
@@ -44,10 +44,33 @@ function getInternComputer($id){
 
 function getInternHobbies($id){
     $connection = db_connect();
-    $query = 'SELECT hobby FROM interns
+    $query = 'SELECT hobbies.id, hobby FROM interns
     INNER JOIN intern_hobby ON intern_hobby.intern_id = interns.id
     INNER JOIN hobbies ON intern_hobby.hobby_id = hobbies.id
     WHERE interns.id = ' . $id;
+    $stmt = $connection->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
+
+function getSharedHobby($id) {
+    $connection = db_connect();
+    $query = 'SELECT interns.id, lastname, firstname
+    FROM interns 
+    INNER JOIN intern_hobby ON interns.id = intern_hobby.intern_id
+    INNER JOIN hobbies ON intern_hobby.hobby_id = hobbies.id
+    WHERE hobbies.id =' . $id;
+    $stmt = $connection->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
+
+function getSharedComputer($id) {
+    $connection = db_connect();
+    $query = 'SELECT interns.id, lastname, firstname
+    FROM interns 
+    INNER JOIN computers ON interns.computers_id = computers.id
+    WHERE computers.id =' . $id;
     $stmt = $connection->query($query);
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $results;
