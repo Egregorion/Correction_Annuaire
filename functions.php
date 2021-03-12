@@ -22,6 +22,22 @@ function getInternsList() {
     return $results;
 }
 
+function getComputersList() {
+    $connection = db_connect();
+    $query = 'SELECT * FROM computers';
+    $stmt = $connection->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results; 
+}
+
+function getHobbiesList() {
+    $connection = db_connect();
+    $query = 'SELECT * FROM hobbies';
+    $stmt = $connection->query($query);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results; 
+}
+
 function getInternInfos($id){
     $connection = db_connect();
     $query = 'SELECT id, lastname, firstname, birthday, gender
