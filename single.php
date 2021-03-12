@@ -17,7 +17,6 @@ $hobbies = getInternHobbies($id);
       <div class="card">
         <div class="card-title">
             <?php echo $infos['lastname'] . " " . $infos['firstname'];?>
-            <a class="btn-floating btn-large waves-effect waves-light red right-align"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
         <a href="archive_computer.php?id= <?php echo $brand['id']; ?>"><span class="is-primary"><?php echo $brand['brand']; ?></span>

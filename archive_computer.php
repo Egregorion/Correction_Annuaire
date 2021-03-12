@@ -26,5 +26,6 @@ $brand = getComputerBrand($id);
     </div>
     <?php } ?> 
 </div>
-
+<?php
 include 'footer.php';
+?>

@@ -53,6 +53,15 @@ function getInternHobbies($id){
     return $results;
 }
 
+function getHobbyName($id){
+    $connection = db_connect();
+    $query = 'SELECT hobby FROM hobbies
+    WHERE hobbies.id = '. $id;
+    $stmt = $connection->query($query);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 function getSharedHobby($id) {
     $connection = db_connect();
     $query = 'SELECT interns.id, lastname, firstname
