@@ -2,14 +2,23 @@
 require 'functions.php';
 include 'header.php';
 
-    $stagiaires = getInternsList();
-        
-    foreach($stagiaires as $stagiaire){ 
+    $stagiaires = getInternsList(); ?>
+    <div class="row">
+        <?php foreach($stagiaires as $stagiaire){ 
         $internComputer = getInternComputer($stagiaire['id']);?>
-        <div class="nes-container is-centered">
-            <h2><a  href="single.php?id=<?php echo $stagiaire['id'];?>"><?php echo $stagiaire['lastname'] . " " . $stagiaire['firstname']?></a></h2>
+        <div class="col s12 m6">
+            <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                    <span class="card-title"><?php echo $stagiaire['lastname'] . " " . $stagiaire['firstname']?></span>
+                </div>
+                <div class="card-action">
+                    <a href="single.php?id=<?php echo $stagiaire['id'];?>">Voir le profil</a>
+                </div>
+            </div>
         </div>
-    <?php } 
-
-include 'footer.php';
+        <?php } ?> 
+    </div>
     
+<?php
+include 'footer.php';
+?>   

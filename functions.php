@@ -65,6 +65,15 @@ function getSharedHobby($id) {
     return $results;
 }
 
+function getComputerBrand($id) {
+    $connection = db_connect();
+    $query = 'SELECT * FROM computers
+    WHERE computers.id =' . $id;
+    $stmt = $connection->query($query);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 function getSharedComputer($id) {
     $connection = db_connect();
     $query = 'SELECT interns.id, lastname, firstname
