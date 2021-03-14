@@ -1,13 +1,11 @@
-<?php include 'partials/header.php'; ?>
+<?php include 'partials/header.php';?>
 
 <div class="container">
-
-    <h1 class="text-center">Interns</h1>
-    
+    <h1 class="text-center"><?php echo $hobby['hobby']; ?></h1>
     <div class="row">
-        <?php foreach($stagiaires as $stagiaire){ ?>
-        <div class="col-12 col-md-6 mb-2">
-            <div class="card text-center">
+        <?php foreach($sharedHobby as $stagiaire){ ?>
+        <div class="col-12 col-md-6">
+            <div class="card">
                 <div class="card-title">
                     <span><?php echo $stagiaire['lastname'] . " " . $stagiaire['firstname']?></span>
                 </div>
@@ -18,9 +16,6 @@
         </div>
         <?php } ?> 
     </div>
-    <div class="text-center mt-2">
-        <span class="btn btn-primary"><a href="addIntern.php">Add intern</a></span>
-    </div>
-    
 </div>
-<?php include 'partials/footer.php'; ?>
+
+<?php include 'partials/footer.php';?>

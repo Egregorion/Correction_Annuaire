@@ -110,4 +110,27 @@ function getSharedComputer($id) {
     return $results;
 }
 
+function addIntern($lastname, $firstname, $birthday, $computerId, $gender) {
+    $connection = db_connect();
+    $query = "INSERT INTO interns(id, lastname, firstname, birthday, computers_id, gender)
+    VALUES (null, '$lastname', '$firstname', '$birthday', '$computerId', '$gender')";
+    $connection->query($query);  
+}   
+
+function getLastIntern($lastname, $firstname, $birthday ){
+    $connection = db_connect();
+    $query = "SELECT id FROM interns
+    WHERE lastname = '$lastname' AND firstname = '$firstname' AND birthday = '$birthday'";
+    $stmt = $connection->query($query);
+    $lastIntern = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $lastIntern['id'];
+}
+
+function setInternHobbies($id_hobby, $id_intern){
+    $connection = db_connect();
+    $query = "INSERT INTO intern_hobby(id, hobby_id, intern_id)
+    VALUES (null, '$id_hobby', '$id_intern')";
+    $connection->query($query);
+}
+
 
